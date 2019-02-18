@@ -1,0 +1,7 @@
+#spring:
+#  application: icv_config_setting
+#  cloud:
+#    config:
+#      profile: dev
+#      label: master
+#      uri: http://10.100.9.2:8888
