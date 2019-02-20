@@ -10,11 +10,11 @@ import java.util.Map;
 @Configuration
 public class InitSettingBeanConfiguration {
     public InitSettingBeanConfiguration() throws YamlException {
-        String result = HttpUtil.sendGet("http://10.100.9.2:8888/dev-conf.yml",null);
-
-        YamlReader reader = new YamlReader(result);
-        Map<String,Object> setMap = reader.read(Map.class);
-
-        System.out.println(setMap);
+//        String result = HttpUtil.sendGet("http://10.100.9.2:8888/dev-conf.yml",null);
+//
+//        YamlReader reader = new YamlReader(result);
+//        Map<String,Object> setMap = reader.read(Map.class);
+//
+//        System.out.println(setMap);
     }
 }

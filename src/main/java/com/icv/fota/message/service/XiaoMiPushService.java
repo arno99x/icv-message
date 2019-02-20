@@ -5,9 +5,8 @@ import com.xiaomi.xmpush.server.Constants;
 import com.xiaomi.xmpush.server.Message;
 import com.xiaomi.xmpush.server.Sender;
 import com.xiaomi.xmpush.server.Sender.BROADCAST_TOPIC_OP;
-import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
-import sun.applet.Main;
+import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -20,6 +19,7 @@ import java.util.Map;
  *
  * @date 2018年3月14日
  */
+@Service
 public class XiaoMiPushService {
 
     private static String APP_SECRET_KEY_ANDROID = "YD6InICFy97ahjkFY5vbKA==";
@@ -36,7 +36,7 @@ public class XiaoMiPushService {
      * @throws IOException
      * @throws ParseException
      */
-    public static void sendAllBroadcast(String messagePayload, String title, String description, String ads_type,
+    public void sendAllBroadcast(String messagePayload, String title, String description, String ads_type,
                                         String ads_links) throws IOException, ParseException {
 
         Constants.useOfficial();
@@ -74,7 +74,7 @@ public class XiaoMiPushService {
      * @throws IOException
      * @throws ParseException
      */
-    public static void sendBroadcast(String messagePayload, String title, String description, String ads_type,
+    public void sendBroadcast(String messagePayload, String title, String description, String ads_type,
                                      String ads_links, List<String> topicList) throws IOException, ParseException {
 
         Constants.useOfficial();
@@ -107,7 +107,7 @@ public class XiaoMiPushService {
      * @throws IOException
      * @throws ParseException
      */
-    public static void sendMessageToAliases(String messagePayload, String title, String description, String ads_type,
+    public void sendMessageToAliases(String messagePayload, String title, String description, String ads_type,
                                             String ads_links, List<String> aliasList) throws IOException, ParseException {
         Constants.useOfficial();
         Map map = new HashMap();
@@ -124,22 +124,20 @@ public class XiaoMiPushService {
         sender_android.sendToAlias(message, aliasList, 3);
     }
 
-    public static void main(String args[]){
-        try {
-//            XiaoMiPushService.sendAllBroadcast("....","yyyyyyy","777777","0","1");
-
-
-            // // 王强 71821A4AF92E
-            // // 翟熙贵 8DF78A00E73F
-            List<String> aliasList = new ArrayList<>();
+//    public static void main(String args[]){
+//        XiaoMiPushService xiaoMiPushService = new XiaoMiPushService();
+//        try {
+//            // // 王强 71821A4AF92E
+//            // // 翟熙贵 8DF78A00E73F
+//            List<String> aliasList = new ArrayList<>();
 //            aliasList.add("8DF78A00E73F");
-            aliasList.add("71821A4AF92E");
-            XiaoMiPushService.sendMessageToAliases("333333333","yyyyyyy","777777","0","1",aliasList);
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-    }
+//            aliasList.add("71821A4AF92E");
+//            xiaoMiPushService.sendMessageToAliases("333333333","yyyyyyy","777777","0","1",aliasList);
+//
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        } catch (ParseException e) {
+//            e.printStackTrace();
+//        }
+//    }
 }
